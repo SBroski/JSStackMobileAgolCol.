@@ -23,7 +23,7 @@
     <script src="https://js.arcgis.com/4.26/"></script>
 
     <script>
-      require(["esri/config", "esri/Map", "esri/views/MapView"], (esriConfig, Map, MapView) => {
+      require(["esri/config", "esri/Map", "esri/views/MapView","esri/widgets/Locate"], (esriConfig, Map, MapView, Locate) => {
         esriConfig.apiKey = "AAPTxy8BH1VEsoebNVZXo8HurHV9iTjyehHsEnzvI8sUaIIi3IXKSAtkibIBMvi9jHxhHvPHCZa6N4xYfFoOEi78qgMywaRxeyVvI1Pz_78100xHYQok0FWPMtiG11U13TasCx7WXo9KXA-fcdY4m-5KHDJwA1Y708w2ozyvy8mJXILDv4ppEgc-_f3LIN8A7V8MEONoJX1o1iQ91-dmwsurQCX6QdJ5U9JAUmin7JnL7Aw.AT1_Stq55Mfi";
         const map = new Map({
           basemap: "satellite"
@@ -34,6 +34,15 @@
           center: [-69.620314, 44.545968],
           zoom: 13
         });
+
+        const locateBtn = new Locate({
+          view: view
+        });
+
+        // Add the locate widget to the top left corner of the view
+        view.ui.add(locateBtn, {
+          position: "top-left"
+        });        
       });
     </script>
   </head>
